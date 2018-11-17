@@ -4,6 +4,7 @@ using KMA.APZRPMJ2018.NumberConverter.Tools;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Models
 {
+    [Serializable]
     public class User
     {
         #region Const
@@ -138,7 +139,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
 
         private void SetPassword(string password)
         {
-            _password = Encrypting.EncryptText(password, PublicKey);
+            _password = Encrypting.GetMd5HashForString(password);
         }
 
         public bool CheckPassword(string password)
@@ -147,7 +148,21 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
             {
                 string res = Encrypting.DecryptString(_password, PrivateKey);
                 string res2 = Encrypting.GetMd5HashForString(password);
-                return res == res2;
+                return _password == res2;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool CheckPassword(User userCandidate)
+        {
+            try
+            {
+                //string res = Encrypting.DecryptString(_password, PrivateKey);
+                //string res2 = Encrypting.DecryptString(userCandidate._password, PrivateKey);
+                return _password == userCandidate._password;
             }
             catch (Exception)
             {

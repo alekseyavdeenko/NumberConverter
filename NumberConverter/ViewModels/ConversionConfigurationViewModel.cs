@@ -125,6 +125,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         [NotifyPropertyChangedInvocator]
         internal virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
+            DBManager.UpdateUser(StationManager.CurrentUser);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion

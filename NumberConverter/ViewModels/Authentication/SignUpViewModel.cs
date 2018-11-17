@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
@@ -110,41 +112,49 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
         }
         #endregion
 
-        private void SignUpExecute(object obj)
+        private async void SignUpExecute(object obj)
         {
-            try
+            LoaderManager.Instance.ShowLoader();
+            var result = await Task.Run(() =>
             {
-                if (!new EmailAddressAttribute().IsValid(_email))
+                try
                 {
-                    MessageBox.Show(String.Format(Resources.SignUp_EmailIsNotValid, _email));
-                    return;
+                    Thread.Sleep(3000);
+                    if (!new EmailAddressAttribute().IsValid(_email))
+                    {
+                        MessageBox.Show(String.Format(Resources.SignUp_EmailIsNotValid, _email));
+                        return false;
+                    }
+                    if (DBManager.UserExists(_login))
+                    {
+                        MessageBox.Show(String.Format(Resources.SignUp_UserAlreadyExists, _login));
+                        return false;
+                    }
                 }
-                if (DBManager.UserExists(_login))
+                catch (Exception ex)
                 {
-                    MessageBox.Show(String.Format(Resources.SignUp_UserAlreadyExists, _login));
-                    return;
+                    MessageBox.Show(String.Format(Resources.SignUp_FailedToValidateData, Environment.NewLine,
+                        ex.Message));
+                    return false;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(String.Format(Resources.SignUp_FailedToValidateData, Environment.NewLine,
-                    ex.Message));
-                return;
-            }
-            try
-            {
-                var user = new User(_firstName, _lastName, _email, _login, _password);
-                DBManager.AddUser(user);
-                StationManager.CurrentUser = user;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(String.Format(Resources.SignUp_FailedToCreateUser, Environment.NewLine,
-                    ex.Message));
-                return;
-            }
-            MessageBox.Show(String.Format(Resources.SignUp_UserSuccessfulyCreated, _login));
-            NavigationManager.Instance.Navigate(ModesEnum.Main);
+                try
+                {
+                    var user = new User(_firstName, _lastName, _email, _login, _password);
+                    DBManager.AddUser(user);
+                    StationManager.CurrentUser = user;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(String.Format(Resources.SignUp_FailedToCreateUser, Environment.NewLine,
+                        ex.Message));
+                    return false;
+                }
+                MessageBox.Show(String.Format(Resources.SignUp_UserSuccessfulyCreated, _login));
+                return true;
+            });
+            LoaderManager.Instance.HideLoader();
+            if (result)
+                NavigationManager.Instance.Navigate(ModesEnum.Main);
         }
 
         private bool SignUpCanExecute(object obj)
@@ -155,12 +165,10 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
                    !String.IsNullOrEmpty(_lastName) &&
                    !String.IsNullOrEmpty(_email);
         }
-
         private void SignInExecute(object obj)
         {
             NavigationManager.Instance.Navigate(ModesEnum.SignIn);
         }
-
         private void CloseExecute(object obj)
         {
             StationManager.CloseApp();

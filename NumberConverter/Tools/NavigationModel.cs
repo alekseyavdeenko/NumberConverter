@@ -28,13 +28,16 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
             switch (mode)
             {
                 case ModesEnum.SignIn:
-                    _contentWindow.ContentControl.Content = _signInView ?? (_signInView = new SignInView());
+                    _signInView = new SignInView();
+                    _contentWindow.ContentControl.Content = _signInView;
                     break;
                 case ModesEnum.SignUp:
-                    _contentWindow.ContentControl.Content = _signUpView ?? (_signUpView = new SignUpView());
+                    _signUpView = new SignUpView();
+                    _contentWindow.ContentControl.Content = _signUpView;
                     break;
                 case ModesEnum.Main:
-                    _contentWindow.ContentControl.Content = _mainView ?? (_mainView = new MainView());
+                    _mainView = new MainView();
+                    _contentWindow.ContentControl.Content = _mainView;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(mode), mode, null);

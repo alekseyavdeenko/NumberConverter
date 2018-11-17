@@ -16,6 +16,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         private ObservableCollection<Conversion> _conversions;
         #region Commands
         private ICommand _addConversionCommand;
+        private ICommand _logOutCommand;
         #endregion
         #endregion
 
@@ -39,6 +40,14 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
             get
             {
                 return _addConversionCommand ?? (_addConversionCommand = new RelayCommand<object>(AddConversionExecute));
+            }
+        }
+
+        public ICommand LogOutCommand
+        {
+            get
+            {
+                return _logOutCommand ?? (_logOutCommand = new RelayCommand<object>(LogOutExecute));
             }
         }
         #endregion
@@ -76,6 +85,12 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
             Conversion conversion = new Conversion(StationManager.CurrentUser);
             _conversions.Add(conversion);
             _selectedConversion = conversion;
+        }
+
+        public void LogOutExecute(object o)
+        {
+            StationManager.CurrentUser = null;
+            NavigationManager.Instance.Navigate(ModesEnum.SignIn);
         }
 
         #region EventsAndHandlers

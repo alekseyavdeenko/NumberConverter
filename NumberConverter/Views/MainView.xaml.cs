@@ -23,7 +23,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views
         private void Initialize()
         {
             Visibility = Visibility.Visible;
-            StationManager.LastNumber = 1;
             _mainWindowViewModel = new MainViewViewModel();
             _mainWindowViewModel.ConversionChanged += OnConversionChanged;
             DataContext = _mainWindowViewModel;
@@ -36,7 +35,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views
                 _currentConversionConfigurationView = new ConversionConfigurationView(conversion);
                 MainGrid.Children.Add(_currentConversionConfigurationView);
                 Grid.SetColumn(_currentConversionConfigurationView, 1);
-                Grid.SetRowSpan(_currentConversionConfigurationView, 2);
+                Grid.SetRowSpan(_currentConversionConfigurationView, 3);
                 Grid.SetRow(_currentConversionConfigurationView, 0);
             }
             else

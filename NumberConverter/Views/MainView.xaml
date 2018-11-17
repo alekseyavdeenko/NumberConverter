@@ -12,12 +12,14 @@
             <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="22"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Content="New Conversion" Command="{Binding AddConversionCommand}"/>
-        <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Conversions}" SelectedItem="{Binding SelectedConversion}" 
-                 ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Margin="0 2">
+        <Button Grid.Column="0" Grid.Row="0" Content="Log Out" Command="{Binding LogOutCommand}" Margin="0 1"/>
+        <Button Grid.Column="0" Grid.Row="1" Content="New Conversion" Command="{Binding AddConversionCommand}" Margin="0 1"/>
+        <ListBox Grid.Column="0" Grid.Row="2" ItemsSource="{Binding Conversions}" SelectedItem="{Binding SelectedConversion}" 
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Margin="0 1">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="5">

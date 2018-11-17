@@ -1,6 +1,8 @@
-﻿using System;
+﻿using KMA.APZRPMJ2018.NumberConverter.Properties;
+using System;
 using System.Linq;
 using System.Threading;
+using System.Windows;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Tools
 {
@@ -32,16 +34,25 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
 
         private static string Calculate(int arabicValue)
         {
+           
             var intArr = arabicValue.ToString().Reverse().ToArray();
             var len = intArr.Length;
             var romanNumeral = "";
             var i = len;
 
-            while (i-- > 0)
+            try
             {
-                romanNumeral += RomanNumerals[i][Int32.Parse(intArr[i].ToString())];
+                while (i-- > 0)
+                {
+                    romanNumeral += RomanNumerals[i][Int32.Parse(intArr[i].ToString())];
+                }
             }
-
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show(String.Format(Resources.Convert_UnableToConvert, Environment.NewLine,
+                    ex.Message));
+            }
+            
             return romanNumeral;
         }
     }

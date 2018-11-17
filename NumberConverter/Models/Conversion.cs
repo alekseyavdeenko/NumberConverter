@@ -4,6 +4,7 @@ using KMA.APZRPMJ2018.NumberConverter.Tools;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Models
 {
+    [Serializable]
     public class Conversion
     {
         #region Fields
@@ -49,8 +50,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
             _arabicNumeralValue = "";
             _romanNumeralValue = "";
             _conversionDate = DateTime.Today.Date;
-            _number = StationManager.LastNumber;
-            StationManager.LastNumber = StationManager.LastNumber + 1;
+            _number = StationManager.CurrentUser.Conversions.Count+1;
             user.Conversions.Add(this);
         }
         private Conversion()

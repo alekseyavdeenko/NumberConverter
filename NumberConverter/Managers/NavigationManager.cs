@@ -55,7 +55,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
         {
             //If _navigationModel is null, nothing will happen
             _navigationModel?.Navigate(mode);
-            StationManager.LastNumber = 1;
         }
     }
 }

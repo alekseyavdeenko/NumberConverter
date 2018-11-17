@@ -1,6 +1,8 @@
 ﻿using System.Windows.Controls;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
+using KMA.APZRPMJ2018.NumberConverter.ViewModels;
+
 
 namespace NumberConverter
 {
@@ -14,7 +16,9 @@ namespace NumberConverter
             InitializeComponent();
             var navigationModel = new NavigationModel(this);
             NavigationManager.Instance.Initialize(navigationModel);
-            navigationModel.Navigate(ModesEnum.SignIn);
+            MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            DataContext = mainWindowViewModel;
+            mainWindowViewModel.StartApplication();
         }
 
         public ContentControl ContentControl
