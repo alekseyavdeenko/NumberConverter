@@ -6,8 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
-using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
 

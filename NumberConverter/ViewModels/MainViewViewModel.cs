@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;

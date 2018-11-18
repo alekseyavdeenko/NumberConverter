@@ -32,7 +32,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
             return value;
         }
 
-
         private static string Calculate(int arabicValue)
         {
 

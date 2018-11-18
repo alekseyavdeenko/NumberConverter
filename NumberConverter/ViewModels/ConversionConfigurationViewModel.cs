@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
+using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
@@ -99,7 +100,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         {
             try
             {
-                if(!(Regex.IsMatch(_userInput, @"^\d+$")))
+                if (!(Regex.IsMatch(_userInput, @"^\d+$")))
                 {
                     MessageBox.Show(String.Format(Resources.Convert_ValueIsNotValid, ArabicValue));
                     return;
@@ -118,7 +119,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
                 return;
             }
         }
-        
+
         #region EventsAndHandlers
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
