@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity.ModelConfiguration;
+using KMA.APZRPMJ2018.NumberConverter.Tools;
 namespace KMA.APZRPMJ2018.NumberConverter.DBModels
 {
     [Serializable]
@@ -62,8 +63,16 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBModels
             _arabicNumeralValue = "";
             _romanNumeralValue = "";
             _conversionDate = DateTime.Today.Date;
-            _number = StationManager.CurrentUser.Conversions.Count + 1;
+            if (user.Conversions.Count != 0)
+            {
+                _number = user.Conversions[user.Conversions.Count - 1].Number + 1;
+            }
+            else
+            {
+                _number = 1;
+            }
             _user = user;
+            _userGuid = user.Guid;
             user.Conversions.Add(this);
         }
         private Conversion()
@@ -93,11 +102,17 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBModels
                 Property(p => p.Guid)
                    .HasColumnName("Guid")
                    .IsRequired();
+                Property(s => s.Number)
+                    .HasColumnName("Number")
+                    .IsRequired();
                 Property(p => p.ArabicNumeralValue)
                     .HasColumnName("ArabicNumeralValue")
                     .IsRequired();
                 Property(s => s.RomanNumeralValue)
                     .HasColumnName("RomanNumeralValue")
+                    .IsRequired();
+                Property(s => s.ConversionDate)
+                    .HasColumnName("ConversionDate")
                     .IsRequired();
 
             }

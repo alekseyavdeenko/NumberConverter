@@ -2,19 +2,21 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
+using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 {
-    public class MainViewViewModel : INotifyPropertyChanged
+    class MainViewViewModel : INotifyPropertyChanged
     {
         #region Fields
-        private Conversion _selectedConversion;
-        private ObservableCollection<Conversion> _conversions;
+        private ConversionUIModel _selectedConversion;
+        private ObservableCollection<ConversionUIModel> _conversions;
         #region Commands
         private ICommand _addConversionCommand;
         private ICommand _logOutCommand;
@@ -22,17 +24,17 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #endregion
 
         #region Properties
-        public ObservableCollection<Conversion> Conversions
+        public ObservableCollection<ConversionUIModel> Conversions
         {
             get { return _conversions; }
         }
-        public Conversion SelectedConversion
+        public ConversionUIModel SelectedConversion
         {
             get { return _selectedConversion; }
             set
             {
                 _selectedConversion = value;
-                OnPropertyChanged("SelectedConversion");
+                OnPropertyChanged();
             }
         }
         #region Commands
@@ -57,8 +59,8 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #region Constructor
         public MainViewViewModel()
         {
-            FillConversions();
             PropertyChanged += OnPropertyChanged;
+            FillConversions();
         }
         #endregion
 
@@ -70,26 +72,44 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 
         private void FillConversions()
         {
-            _conversions = new ObservableCollection<Conversion>();
+            _conversions = new ObservableCollection<ConversionUIModel>();
+            StationManager.CurrentUser.Conversions = StationManager.CurrentUser.Conversions.OrderBy(o => o.Number).ToList();
+            List<Conversion> toDelete = new List<Conversion>();
             foreach (var conv in StationManager.CurrentUser.Conversions)
             {
-                _conversions.Add(conv);
+                if (conv.RomanNumeralValue.Equals("UNDEFINED") || conv.RomanNumeralValue.Equals(""))
+                {
+                    toDelete.Add(conv);
+                }
+                else
+                {
+                    _conversions.Add(new ConversionUIModel(conv));
+                }
             }
             if (_conversions.Count > 0)
             {
                 _selectedConversion = Conversions[0];
             }
+
+            foreach (var conv in toDelete)
+            {
+                StationManager.CurrentUser.Conversions.Remove(conv);
+                DBManager.DeleteConversion(conv);
+            }
         }
 
         public void AddConversionExecute(object o)
         {
-            Conversion conversion = new Conversion(StationManager.CurrentUser);
+            Conversion conv = new Conversion(StationManager.CurrentUser);
+            DBManager.AddConversion(conv);
+            ConversionUIModel conversion = new ConversionUIModel(conv);
             _conversions.Add(conversion);
             _selectedConversion = conversion;
         }
 
         public void LogOutExecute(object o)
         {
+            StationManager.DeleteLastSerializedUsed();
             StationManager.CurrentUser = null;
             NavigationManager.Instance.Navigate(ModesEnum.SignIn);
         }
@@ -97,9 +117,9 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #region EventsAndHandlers
         #region Loader
         internal event ConversionChangedHandler ConversionChanged;
-        internal delegate void ConversionChangedHandler(Conversion conversion);
+        internal delegate void ConversionChangedHandler(ConversionUIModel conversion);
 
-        internal virtual void OnConversionChanged(Conversion conversion)
+        internal virtual void OnConversionChanged(ConversionUIModel conversion)
         {
             ConversionChanged?.Invoke(conversion);
         }

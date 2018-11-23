@@ -108,7 +108,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBModels
             {
                 return _conversions;
             }
-            private set
+            set
             {
                 _conversions = value;
             }

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using KMA.APZRPMJ2018.NumberConverter.Managers;
+using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.ViewModels;
 using KMA.APZRPMJ2018.NumberConverter.Views.Conversion;
 
@@ -13,7 +13,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views
     {
         private MainViewViewModel _mainWindowViewModel;
         private ConversionConfigurationView _currentConversionConfigurationView;
-        
+
         public MainView()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views
             DataContext = _mainWindowViewModel;
         }
 
-        private void OnConversionChanged(Models.Conversion conversion)
+        private void OnConversionChanged(ConversionUIModel conversion)
         {
             if (_currentConversionConfigurationView == null)
             {

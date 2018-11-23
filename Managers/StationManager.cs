@@ -40,6 +40,17 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
             else
                 CurrentUser = userCandidate;
         }
+        public static void DeleteLastSerializedUsed()
+        {
+            try
+            {
+                SerializationManager.Serialize<User>(null, Path.Combine(FileFolderHelper.LastUserFilePath));
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Failed to Delete last serialized user", ex);
+            }
+        }
 
         public static void CloseApp()
         {

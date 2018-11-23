@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Windows;
+using System.Windows.Forms;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Tools
 {

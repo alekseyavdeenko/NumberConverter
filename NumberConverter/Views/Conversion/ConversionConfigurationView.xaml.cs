@@ -8,7 +8,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views.Conversion
     /// </summary>
     public partial class ConversionConfigurationView
     {
-        public ConversionConfigurationView(Models.Conversion conversion)
+        public ConversionConfigurationView(Models.ConversionUIModel conversion)
         {
             InitializeComponent();
             var conversionModel = new ConversionConfigurationViewModel(conversion);

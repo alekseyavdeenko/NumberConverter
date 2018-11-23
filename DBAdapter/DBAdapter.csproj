@@ -50,9 +50,9 @@
   <ItemGroup>
     <Compile Include="ConversionDBContext.cs" />
     <Compile Include="EntityWrapper.cs" />
-    <Compile Include="Migrations\201811111954466_InitialMigration.cs" />
-    <Compile Include="Migrations\201811111954466_InitialMigration.Designer.cs">
-      <DependentUpon>201811111954466_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201811111954466_InitialCreate.cs" />
+    <Compile Include="Migrations\201811111954466_InitialCreate.Designer.cs">
+      <DependentUpon>201811111954466_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

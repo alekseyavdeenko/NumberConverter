@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections.Generic;
+using System.Linq;
 using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
 using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
@@ -26,10 +27,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
                 return userInStorage;
             return null;
         }
-        private static void SaveChanges()
-        {
-            SerializationManager.Serialize(Users, FileFolderHelper.StorageFilePath);
-        }
+       
         public static void DeleteConversion(Conversion selectedConversion)
         {
             EntityWrapper.DeleteConversion(selectedConversion);
@@ -39,9 +37,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
             EntityWrapper.AddConversion(conversion);
         }
 
-        public static void UpdateUser(User currentUser)
-        {
-            SaveChanges();
-        }
+        
     }
 }

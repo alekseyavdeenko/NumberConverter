@@ -2,10 +2,10 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using KMA.APZRPMJ2018.NumberConverter.DBModels;
-using KMA.APZRPMJ2018.NumberConverter.Managers;
+using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
@@ -16,7 +16,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
     {
         #region Fields
         private string _userInput;
-        private Conversion _currentConversion;
+        private ConversionUIModel _currentConversion;
         #region Command
         private ICommand _convertCommand;
         #endregion
@@ -90,33 +90,45 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         #endregion
 
         #region Constructor
-        public ConversionConfigurationViewModel(Conversion conversion)
+        public ConversionConfigurationViewModel(ConversionUIModel conversion)
         {
             _currentConversion = conversion;
         }
         #endregion
 
-        private void ConvertExecute(object obj)
+        private async void ConvertExecute(object obj)
         {
-            try
+            var result = await Task.Run(() =>
             {
-                if (!(Regex.IsMatch(_userInput, @"^\d+$")))
+                try
                 {
-                    MessageBox.Show(String.Format(Resources.Convert_ValueIsNotValid, ArabicValue));
-                    return;
+                    if (!(Regex.IsMatch(_userInput, @"^\d+$")))
+                    {
+                        MessageBox.Show(String.Format(Resources.Convert_ValueIsNotValid, ArabicValue));
+                        return _currentConversion;
+                    }
+                    else
+                    {
+                        _currentConversion.UpdateConversions(_userInput);
+                        return _currentConversion;
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    // What happens when Convert button is clicked and input value is valid.
-                    _currentConversion.UpdateConversion(_userInput);
-                    RomanValue = _currentConversion.RomanNumeralValue;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(String.Format(Resources.Convert_UnableToConvert, Environment.NewLine,
+                    MessageBox.Show(String.Format(Resources.Convert_UnableToConvert, Environment.NewLine,
                     ex.Message));
-                return;
+                    return _currentConversion;
+                }
+            });
+
+            if (!result.RomanNumeralValue.Equals(""))
+            {
+                RomanValue = _currentConversion.RomanNumeralValue;
+                EntityWrapper.SaveConversion(_currentConversion.Conversion);
+            }
+            else
+            {
+                RomanValue = "UNDEFINED";
             }
         }
 
@@ -126,7 +138,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         [NotifyPropertyChangedInvocator]
         internal virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            DBManager.UpdateUser(StationManager.CurrentUser);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion

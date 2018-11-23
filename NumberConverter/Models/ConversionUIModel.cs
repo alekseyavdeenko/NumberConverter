@@ -41,15 +41,21 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
                 OnPropertyChanged();
             }
         }
-        /*public DateTime ConversionDate
+        public DateTime ConversionDate
         {
             get { return _conversion.ConversionDate; }
-            set
-            {
-                _conversion.ConversionDate = value;
+            
+            
+        }
+
+        public int Number
+        {
+            get { return _conversion.Number; }
+            set { _conversion.Number = value;
                 OnPropertyChanged();
             }
-        }*/
+        }
+       
 
         public Guid Guid
         {
@@ -61,6 +67,10 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
         public ConversionUIModel(Conversion conversion)
         {
             _conversion = conversion;
+        }
+        public void UpdateConversions( string value)
+        {
+            _conversion.UpdateConversion(value);
         }
 
         #region EventsAndHandlers
