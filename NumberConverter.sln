@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Managers", "Managers\Manage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{D182A120-F5C3-4594-8E48-1BCA598ECAB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversionService", "ConversionService\ConversionService.csproj", "{1AB57AC7-8F73-43E5-99F1-1BF11AE0EDFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConversionServiceInterface", "ConversionServiceInterface\ConversionServiceInterface.csproj", "{61A188DB-1386-4381-916C-9AB770224EC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{D182A120-F5C3-4594-8E48-1BCA598ECAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D182A120-F5C3-4594-8E48-1BCA598ECAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D182A120-F5C3-4594-8E48-1BCA598ECAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB57AC7-8F73-43E5-99F1-1BF11AE0EDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB57AC7-8F73-43E5-99F1-1BF11AE0EDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB57AC7-8F73-43E5-99F1-1BF11AE0EDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB57AC7-8F73-43E5-99F1-1BF11AE0EDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A188DB-1386-4381-916C-9AB770224EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A188DB-1386-4381-916C-9AB770224EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A188DB-1386-4381-916C-9AB770224EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A188DB-1386-4381-916C-9AB770224EC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

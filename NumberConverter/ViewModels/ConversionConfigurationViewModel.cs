@@ -9,6 +9,7 @@ using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
+using Tools.Properties;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 {

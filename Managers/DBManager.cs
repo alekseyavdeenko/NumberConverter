@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
-using KMA.APZRPMJ2018.NumberConverter.DBModels;
-using KMA.APZRPMJ2018.NumberConverter.Tools;
+﻿using KMA.APZRPMJ2018.NumberConverter.DBModels;
+using KMA.APZRPMJ2018.NumberConverter.ServiceInterface;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Managers
 {
@@ -10,19 +7,20 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
     {
         public static bool UserExists(string login)
         {
-            return EntityWrapper.UserExists(login);
+            return ConversionServiceWrapper.UserExists(login);
         }
         public static User GetUserByLogin(string login)
         {
-            return EntityWrapper.GetUserByLogin(login);
+            return ConversionServiceWrapper.GetUserByLogin(login);
+
         }
         public static void AddUser(User user)
         {
-            EntityWrapper.AddUser(user);
+            ConversionServiceWrapper.AddUser(user);
         }
         internal static User CheckCachedUser(User userCandidate)
         {
-            var userInStorage = EntityWrapper.GetUserByGuid(userCandidate.Guid);
+            var userInStorage = ConversionServiceWrapper.GetUserByGuid(userCandidate.Guid);
             if (userInStorage != null && userInStorage.CheckPassword(userCandidate))
                 return userInStorage;
             return null;
@@ -30,13 +28,13 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
        
         public static void DeleteConversion(Conversion selectedConversion)
         {
-            EntityWrapper.DeleteConversion(selectedConversion);
+            ConversionServiceWrapper.DeleteConversion(selectedConversion);
         }
         public static void AddConversion(Conversion conversion)
         {
-            EntityWrapper.AddConversion(conversion);
+            ConversionServiceWrapper.AddConversion(conversion);
         }
 
-        
+
     }
 }

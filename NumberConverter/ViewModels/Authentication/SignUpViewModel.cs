@@ -10,6 +10,7 @@ using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
+using Tools.Properties;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
 {

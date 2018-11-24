@@ -55,6 +55,10 @@
     <Compile Include="StationManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConversionServiceInterface\ConversionServiceInterface.csproj">
+      <Project>{61A188DB-1386-4381-916C-9AB770224EC2}</Project>
+      <Name>ConversionServiceInterface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DBAdapter\DBAdapter.csproj">
       <Project>{a8142e02-3482-4c98-9119-9ba09cc40c3c}</Project>
       <Name>DBAdapter</Name>
