@@ -1,9 +1,8 @@
-﻿using System;
+﻿using KMA.APZRPMJ2018.NumberConverter.Tools.Properties;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Windows;
-using System.Windows.Forms;
-using Tools.Properties;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Tools
 {
@@ -33,10 +32,8 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
             return value;
         }
 
-
         private static string Calculate(int arabicValue)
         {
-
             var intArr = arabicValue.ToString().Reverse().ToArray();
             var len = intArr.Length;
             var romanNumeral = "";
@@ -54,7 +51,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
                 MessageBox.Show(String.Format(Resources.Convert_UnableToConvert, Environment.NewLine,
                     ex.Message));
             }
-
+            
             return romanNumeral;
         }
     }

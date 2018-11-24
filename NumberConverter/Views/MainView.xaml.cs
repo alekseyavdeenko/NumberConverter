@@ -13,7 +13,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Views
     {
         private MainViewViewModel _mainWindowViewModel;
         private ConversionConfigurationView _currentConversionConfigurationView;
-
+        
         public MainView()
         {
             InitializeComponent();

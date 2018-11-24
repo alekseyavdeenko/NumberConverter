@@ -40,7 +40,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

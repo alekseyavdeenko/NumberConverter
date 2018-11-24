@@ -16,6 +16,7 @@ namespace NumberConverter
             InitializeComponent();
             var navigationModel = new NavigationModel(this);
             NavigationManager.Instance.Initialize(navigationModel);
+            StationManager.DeserializeLastUser();
             MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
             DataContext = mainWindowViewModel;
             mainWindowViewModel.StartApplication();

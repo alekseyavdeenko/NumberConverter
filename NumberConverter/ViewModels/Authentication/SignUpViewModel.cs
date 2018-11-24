@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -10,7 +9,7 @@ using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Managers;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
-using Tools.Properties;
+
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication
 {

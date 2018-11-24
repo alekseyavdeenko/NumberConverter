@@ -118,6 +118,36 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Convert_UnableToConvert" xml:space="preserve">
-    <value>Unable to convert.</value>
+    <value>Неможливо виконати конвертацiю!</value>
+  </data>
+  <data name="Convert_ValueIsNotValid" xml:space="preserve">
+    <value>Некоректно введенi данi. {0}.</value>
+  </data>
+  <data name="SignIn_FailedToGetUser" xml:space="preserve">
+    <value>Не вдалося отримати користувача. {0} Причина: {1}</value>
+  </data>
+  <data name="SignIn_FailedToValidatePassword" xml:space="preserve">
+    <value>Не вдалося перевірити пароль. {0} Причина: {1}</value>
+  </data>
+  <data name="SignIn_WrongPassword" xml:space="preserve">
+    <value>Не правильний пароль!</value>
+  </data>
+  <data name="SignUp_EmailIsNotValid" xml:space="preserve">
+    <value>Електронна адреса {0} недійсна!</value>
+  </data>
+  <data name="SignUp_FailedToCreateUser" xml:space="preserve">
+    <value>Не вдалося створити користувача. {0} Причина: {1}</value>
+  </data>
+  <data name="SignUp_FailedToValidateData" xml:space="preserve">
+    <value>Не вдалося перевірити дані. {0} Причина: {1}</value>
+  </data>
+  <data name="SignUp_UserAlreadyExists" xml:space="preserve">
+    <value>Користувач із іменем {0} вже існує!</value>
+  </data>
+  <data name="SignUp_UserDoesntExist" xml:space="preserve">
+    <value>Користувач із іменем {0} не існує!</value>
+  </data>
+  <data name="SignUp_UserSuccessfulyCreated" xml:space="preserve">
+    <value>Користувач {0} успішно створений!</value>
   </data>
 </root>

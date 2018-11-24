@@ -1,4 +1,4 @@
-﻿namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter.Migrations
+namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter.Migrations
 {
     using System;
     using System.Data.Entity;

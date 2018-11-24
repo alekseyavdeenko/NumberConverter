@@ -44,18 +44,16 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
         public DateTime ConversionDate
         {
             get { return _conversion.ConversionDate; }
-            
-            
         }
-
         public int Number
         {
             get { return _conversion.Number; }
-            set { _conversion.Number = value;
+            set
+            {
+                _conversion.Number = value;
                 OnPropertyChanged();
             }
         }
-       
 
         public Guid Guid
         {
@@ -68,7 +66,8 @@ namespace KMA.APZRPMJ2018.NumberConverter.Models
         {
             _conversion = conversion;
         }
-        public void UpdateConversions( string value)
+
+        public void UpdateConversion(string value)
         {
             _conversion.UpdateConversion(value);
         }

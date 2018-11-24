@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{61A188DB-1386-4381-916C-9AB770224EC2}</ProjectGuid>
+    <ProjectGuid>{F1A6EFBD-BA2C-47EF-84AB-24DD37E7CC45}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConversionServiceInterface</RootNamespace>
@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBModels\DBModels.csproj">
-      <Project>{D94545E6-AB67-4228-94ED-BF29A951D7B4}</Project>
+      <Project>{29BF3553-D809-4766-A40B-C3B1A6D204DF}</Project>
       <Name>DBModels</Name>
     </ProjectReference>
   </ItemGroup>

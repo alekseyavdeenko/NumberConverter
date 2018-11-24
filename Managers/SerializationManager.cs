@@ -1,8 +1,8 @@
-﻿using KMA.APZRPMJ2018.NumberConverter.Tools;
-using System;
+﻿using System;
 using System.IO;
-
 using System.Runtime.Serialization.Formatters.Binary;
+using KMA.APZRPMJ2018.NumberConverter.Tools;
+
 namespace KMA.APZRPMJ2018.NumberConverter.Managers
 {
     internal static class SerializationManager

@@ -89,7 +89,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBModels
         {
         }
         #endregion
-        
+
         // Add information about arabic and roman values (after Convert button is clicked).
         public void UpdateConversion(string value)
         {

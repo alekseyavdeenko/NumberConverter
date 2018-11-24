@@ -73,7 +73,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         private void FillConversions()
         {
             _conversions = new ObservableCollection<ConversionUIModel>();
-            StationManager.CurrentUser.Conversions = StationManager.CurrentUser.Conversions.OrderBy(o => o.Number).ToList();
+            StationManager.CurrentUser.Conversions = StationManager.CurrentUser.Conversions.OrderBy(o => o.Number).ToList<Conversion>();
             List<Conversion> toDelete = new List<Conversion>();
             foreach (var conv in StationManager.CurrentUser.Conversions)
             {

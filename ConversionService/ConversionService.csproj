@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1AB57AC7-8F73-43E5-99F1-1BF11AE0EDFD}</ProjectGuid>
+    <ProjectGuid>{F5A4A98D-7670-43F7-9FFE-F1FB9BDBFBBA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConversionService</RootNamespace>
@@ -57,21 +57,24 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConversionServiceInterface\ConversionServiceInterface.csproj">
-      <Project>{61A188DB-1386-4381-916C-9AB770224EC2}</Project>
+      <Project>{F1A6EFBD-BA2C-47EF-84AB-24DD37E7CC45}</Project>
       <Name>ConversionServiceInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\DBAdapter\DBAdapter.csproj">
-      <Project>{A8142E02-3482-4C98-9119-9BA09CC40C3C}</Project>
+      <Project>{413C8708-BE22-4A22-B3C3-6AACBEBFC483}</Project>
       <Name>DBAdapter</Name>
     </ProjectReference>
     <ProjectReference Include="..\DBModels\DBModels.csproj">
-      <Project>{D94545E6-AB67-4228-94ED-BF29A951D7B4}</Project>
+      <Project>{29BF3553-D809-4766-A40B-C3B1A6D204DF}</Project>
       <Name>DBModels</Name>
     </ProjectReference>
     <ProjectReference Include="..\Tools\Tools.csproj">
-      <Project>{D182A120-F5C3-4594-8E48-1BCA598ECAB9}</Project>
+      <Project>{5A6C6BB0-57F5-4259-888D-3416FC9C28BA}</Project>
       <Name>Tools</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

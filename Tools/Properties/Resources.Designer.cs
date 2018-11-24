@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tools.Properties {
+namespace KMA.APZRPMJ2018.NumberConverter.Tools.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Tools.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tools.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("KMA.APZRPMJ2018.NumberConverter.Tools.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,105 +66,6 @@ namespace Tools.Properties {
         public static string Convert_UnableToConvert {
             get {
                 return ResourceManager.GetString("Convert_UnableToConvert", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value {0} is not valid..
-        /// </summary>
-        public static string Convert_ValueIsNotValid {
-            get {
-                return ResourceManager.GetString("Convert_ValueIsNotValid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to get user.{0}Reason: {1}.
-        /// </summary>
-        public static string SignIn_FailedToGetUser {
-            get {
-                return ResourceManager.GetString("SignIn_FailedToGetUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to validate password.{0}Reason: {1}.
-        /// </summary>
-        public static string SignIn_FailedToValidatePassword {
-            get {
-                return ResourceManager.GetString("SignIn_FailedToValidatePassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User with login {0} doesn&apos;t exist!.
-        /// </summary>
-        public static string SignIn_UserDoesntExist {
-            get {
-                return ResourceManager.GetString("SignIn_UserDoesntExist", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wrong password!.
-        /// </summary>
-        public static string SignIn_WrongPassword {
-            get {
-                return ResourceManager.GetString("SignIn_WrongPassword", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Email address {0} is not valid!.
-        /// </summary>
-        public static string SignUp_EmailIsNotValid {
-            get {
-                return ResourceManager.GetString("SignUp_EmailIsNotValid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to create user.{0}Reason: {1}.
-        /// </summary>
-        public static string SignUp_FailedToCreateUser {
-            get {
-                return ResourceManager.GetString("SignUp_FailedToCreateUser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Failed to validate data.{0}Reason: {1}.
-        /// </summary>
-        public static string SignUp_FailedToValidateData {
-            get {
-                return ResourceManager.GetString("SignUp_FailedToValidateData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User with login {0} already exists!.
-        /// </summary>
-        public static string SignUp_UserAlreadyExists {
-            get {
-                return ResourceManager.GetString("SignUp_UserAlreadyExists", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User with login {0} doesn&apos;t exist!.
-        /// </summary>
-        public static string SignUp_UserdoesntExist {
-            get {
-                return ResourceManager.GetString("SignUp_UserdoesntExist", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User {0} successfully created!.
-        /// </summary>
-        public static string SignUp_UserSuccessfulyCreated {
-            get {
-                return ResourceManager.GetString("SignUp_UserSuccessfulyCreated", resourceCulture);
             }
         }
     }

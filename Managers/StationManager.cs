@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Windows.Forms;
+using System.Windows;
 using KMA.APZRPMJ2018.NumberConverter.DBModels;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
-
 
 namespace KMA.APZRPMJ2018.NumberConverter.Managers
 {
@@ -13,11 +12,10 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
 
         static StationManager()
         {
-
             DeserializeLastUser();
         }
 
-        private static void DeserializeLastUser()
+        public static void DeserializeLastUser()
         {
             User userCandidate;
             try
@@ -31,7 +29,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
             }
             if (userCandidate == null)
             {
-                Logger.Log("User was not deserialized");
+                Logger.Log("There are no serialized users or failed to deserialize last user");
                 return;
             }
             userCandidate = DBManager.CheckCachedUser(userCandidate);
@@ -40,6 +38,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
             else
                 CurrentUser = userCandidate;
         }
+
         public static void DeleteLastSerializedUsed()
         {
             try
@@ -49,6 +48,18 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
             catch (Exception ex)
             {
                 Logger.Log("Failed to Delete last serialized user", ex);
+            }
+        }
+
+        public static void SerializeLastUser()
+        {
+            try
+            {
+                SerializationManager.Serialize<User>(CurrentUser, Path.Combine(FileFolderHelper.LastUserFilePath));
+            }
+            catch (Exception ex)
+            {
+                Logger.Log("Failed to Serialize last user", ex);
             }
         }
 

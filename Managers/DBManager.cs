@@ -25,7 +25,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.Managers
                 return userInStorage;
             return null;
         }
-       
+
         public static void DeleteConversion(Conversion selectedConversion)
         {
             ConversionServiceWrapper.DeleteConversion(selectedConversion);

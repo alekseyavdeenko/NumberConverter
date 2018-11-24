@@ -9,7 +9,6 @@ using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
 using KMA.APZRPMJ2018.NumberConverter.Tools;
-using Tools.Properties;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 {
@@ -110,7 +109,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
                     }
                     else
                     {
-                        _currentConversion.UpdateConversions(_userInput);
+                        _currentConversion.UpdateConversion(_userInput);
                         return _currentConversion;
                     }
                 }
@@ -132,7 +131,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
                 RomanValue = "UNDEFINED";
             }
         }
-
+        
         #region EventsAndHandlers
         #region PropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

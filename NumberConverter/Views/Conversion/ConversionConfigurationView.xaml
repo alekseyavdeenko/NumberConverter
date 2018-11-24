@@ -10,7 +10,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition/>
+            <RowDefinition Height="160"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
@@ -28,5 +29,6 @@
         <TextBox Name="RomanTextBox" Grid.Column="2" Grid.Row="1"  FontSize="30" FontWeight="Bold"
                  Height="150" VerticalAlignment="Top" Margin="5" VerticalScrollBarVisibility="Auto" IsReadOnly="True"
                  Text="{Binding RomanValue, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+        <TextBox IsReadOnly="true" TextWrapping="Wrap" Margin="5 0" Grid.Column="0" Background="Transparent" BorderThickness="0" Grid.Row="2" FontSize="10">Please, insert a number from range 0-5999. Other numbers will not be converted.</TextBox>
     </Grid>
 </UserControl>
