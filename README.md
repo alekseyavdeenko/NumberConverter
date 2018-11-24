@@ -27,4 +27,4 @@ Test results for task 4:
 
 User can go through all previous conversions and create new ones.
 
-by Lisa Zhylina
+by Oleksii Avdieienko
