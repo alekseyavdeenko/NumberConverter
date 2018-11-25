@@ -25,6 +25,8 @@ Test results for task 4:
 2) All data (exept for last user info) is saved in database.
 3) Unsuccsessful and empty convertations are removed at the next log in.
 
+Test results for task 5:
+Develop a WCF server for your application and translate the functionality into a client-server approach. Only the server must be able to communicate with the database, and client applications must contact it to receive / store data. If you create a service that does not install \ deinstall automatically or use a non-WCF service, you need to add installation, startup and uninstall instructions.
 User can go through all previous conversions and create new ones.
 
-by Lisa Zhylina
+by Oleksii Avdieienko
