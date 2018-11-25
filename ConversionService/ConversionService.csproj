@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F5A4A98D-7670-43F7-9FFE-F1FB9BDBFBBA}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ConversionService</RootNamespace>
     <AssemblyName>ConversionService</AssemblyName>
@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -45,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NumberConverterService.cs" />
-    <Compile Include="NumberConverterWindowsServie.cs">
+    <Compile Include="NumberConverterServiсe.cs" />
+    <Compile Include="NumberConverterWindowsServiсe.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
