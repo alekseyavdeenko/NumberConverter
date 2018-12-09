@@ -1,14 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using KMA.APZRPMJ2018.NumberConverter.DBAdapter;
 using KMA.APZRPMJ2018.NumberConverter.Models;
 using KMA.APZRPMJ2018.NumberConverter.Properties;
-using KMA.APZRPMJ2018.NumberConverter.Tools;
 
 namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
 {
@@ -16,21 +9,18 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
     {
         #region Fields
         private string _userInput;
-        private ConversionUIModel _currentConversion;
-        #region Command
-        private ICommand _convertCommand;
-        #endregion
+        private readonly ConversionUIModel _currentConversion;
         #endregion
 
         #region Properties
         #region Command
-        public ICommand ConvertCommand
-        {
-            get
-            {
-                return _convertCommand ?? (_convertCommand = new RelayCommand<object>(ConvertExecute));
-            }
-        }
+        //public ICommand ConvertCommand
+        //{
+        //    get
+        //    {
+        //        return _convertCommand ?? (_convertCommand = new RelayCommand<object>(ConvertExecute));
+        //    }
+        //}
         #endregion
         public string UserInput
         {
@@ -96,41 +86,41 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         }
         #endregion
 
-        private async void ConvertExecute(object obj)
-        {
-            var result = await Task.Run(() =>
-            {
-                try
-                {
-                    if (!(Regex.IsMatch(_userInput, @"^\d+$")))
-                    {
-                        MessageBox.Show(String.Format(Resources.Convert_ValueIsNotValid, ArabicValue));
-                        return _currentConversion;
-                    }
-                    else
-                    {
-                        _currentConversion.UpdateConversion(_userInput);
-                        return _currentConversion;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(String.Format(Resources.Convert_UnableToConvert, Environment.NewLine,
-                    ex.Message));
-                    return _currentConversion;
-                }
-            });
+        //public async void ConvertExecute(object obj)
+        //{
+        //    var result = await Task.Run(() =>
+        //    {
+        //        try
+        //        {
+        //            if (!(Regex.IsMatch(_userInput, @"^\d+$")))
+        //            {
+        //                MessageBox.Show(String.Format(Resources.Convert_ValueIsNotValid, ArabicValue));
+        //                return _currentConversion;
+        //            }
+        //            else
+        //            {
+        //                _currentConversion.UpdateConversion(_userInput);
+        //                return _currentConversion;
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(String.Format(Resources.Convert_UnableToConvert, Environment.NewLine,
+        //            ex.Message));
+        //            return _currentConversion;
+        //        }
+        //    });
 
-            if (!result.RomanNumeralValue.Equals(""))
-            {
-                RomanValue = _currentConversion.RomanNumeralValue;
-                EntityWrapper.SaveConversion(_currentConversion.Conversion);
-            }
-            else
-            {
-                RomanValue = "UNDEFINED";
-            }
-        }
+        //    if (!result.RomanNumeralValue.Equals(""))
+        //    {
+        //        RomanValue = _currentConversion.RomanNumeralValue;
+        //        EntityWrapper.SaveConversion(_currentConversion.Conversion);
+        //    }
+        //    else
+        //    {
+        //        RomanValue = "UNDEFINED";
+        //    }
+        //}
         
         #region EventsAndHandlers
         #region PropertyChanged

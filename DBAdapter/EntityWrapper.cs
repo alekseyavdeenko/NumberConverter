@@ -32,11 +32,11 @@ namespace KMA.APZRPMJ2018.NumberConverter.DBAdapter
             }
         }
 
-        public static List<User> GetAllUsers(Guid ConversionGuid)
+        public static List<User> GetAllUsers(Guid conversionGuid)
         {
             using (var context = new ConversionDBContext())
             {
-                return context.Users.Where(u => u.Conversions.All(r => r.Guid != ConversionGuid)).ToList();
+                return context.Users.Where(u => u.Conversions.All(r => r.Guid != conversionGuid)).ToList();
             }
         }
 

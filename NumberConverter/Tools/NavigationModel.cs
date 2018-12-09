@@ -2,6 +2,7 @@
 using KMA.APZRPMJ2018.NumberConverter.Views;
 using KMA.APZRPMJ2018.NumberConverter.Views.Authentication;
 
+
 namespace KMA.APZRPMJ2018.NumberConverter.Tools
 {
     internal enum ModesEnum

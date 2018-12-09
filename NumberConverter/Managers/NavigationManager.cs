@@ -2,6 +2,10 @@
 
 namespace KMA.APZRPMJ2018.NumberConverter.Managers
 {
+
+    /// <summary>
+    /// Singleton manager used to help with navigation betwean controls
+    /// </summary>
     internal class NavigationManager
     {
         #region static

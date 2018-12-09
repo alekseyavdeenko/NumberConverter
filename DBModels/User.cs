@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 using System.Runtime.Serialization;
-using System.Windows.Markup;
 
 namespace KMA.APZRPMJ2018.NumberConverter.DBModels
 {

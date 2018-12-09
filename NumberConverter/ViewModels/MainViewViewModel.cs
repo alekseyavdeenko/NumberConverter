@@ -55,7 +55,7 @@ namespace KMA.APZRPMJ2018.NumberConverter.ViewModels
         }
         #endregion
         #endregion
-
+        
         #region Constructor
         public MainViewViewModel()
         {

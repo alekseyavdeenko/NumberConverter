@@ -18,10 +18,10 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
             "App_" + DateTime.Now.ToString("YYYY_MM_DD") + ".txt");
 
         public static readonly string StorageFilePath =
-            Path.Combine(ClientFolderPath, "Storage.numcon");
+            Path.Combine(ClientFolderPath, "Storage.walsim");
 
         public static readonly string LastUserFilePath =
-            Path.Combine(ClientFolderPath, "LastUser.numcon");
+            Path.Combine(ClientFolderPath, "LastUser.walsim");
 
         public static void CheckAndCreateFile(string filePath)
         {
@@ -36,7 +36,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.Tools
                 {
                     file.Create().Close();
                 }
-                //Console.WriteLine(filePath);
             }
             catch (Exception)
             {

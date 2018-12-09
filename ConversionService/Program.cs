@@ -12,7 +12,6 @@ namespace KMA.APZRPMJ2018.NumberConverter.ConversionService
         /// </summary>
         static void Main()
         {
-            //Thread.Sleep(10000);
             bool isInstalled = false;
             bool serviceStarting = false;
             const string serviceName = NumberConverterWindowsService.CurrentServiceName;

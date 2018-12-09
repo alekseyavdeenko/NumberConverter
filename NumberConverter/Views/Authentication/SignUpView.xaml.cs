@@ -1,5 +1,4 @@
-﻿using KMA.APZRPMJ2018.NumberConverter.ViewModels;
-using KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication;
+﻿using KMA.APZRPMJ2018.NumberConverter.ViewModels.Authentication;
 
 namespace KMA.APZRPMJ2018.NumberConverter.Views.Authentication
 {
